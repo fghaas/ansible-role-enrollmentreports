@@ -7,8 +7,8 @@ SELECT
   SUM(TIMESTAMPDIFF(SECOND,
                     sl.launch_timestamp,
                     sl.suspend_timestamp)) AS lab_seconds
-FROM hastexo_stacklog AS sl
-  INNER JOIN hastexo_stack AS s ON sl.stack_id=s.id
+FROM stackamole_stacklog AS sl
+  INNER JOIN stackamole_stack AS s ON sl.stack_id=s.id
   INNER JOIN auth_user u ON s.learner_id=u.id
 WHERE
   sl.status='SUSPEND_COMPLETE'
